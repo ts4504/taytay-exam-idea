@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--对应接口的全类名-->
+<mapper namespace="com.athome.mapper.QuestionMapper">
+    <resultMap id="QuestionResultMap" type="com.athome.pojo.Question">
+        <id column="id" property="id"/>
+        <result column="teacher_id" property="teacherId"/>
+        <result column="course_id" property="courseId"/>
+        <result column="type" property="type"/>
+        <result column="content" property="content"/>
+        <result column="options" property="options" typeHandler="com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler"/>
+        <result column="answer" property="answer"/>
+        <result column="score" property="score"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+
+    <select id="findById" resultMap="QuestionResultMap">
+        select *
+        from question
+        where id=#{id};
+    </select>
+
+    <select id="list" resultMap="QuestionResultMap">
+        select *
+        from question
+        <where>
+            <if test="courseId!=null">
+                course_id = #{courseId}
+            </if>
+            <if test="type != null">
+                and type=#{type}
+            </if>
+        </where>
+    </select>
+
+    <select id="findByPaper" resultMap="QuestionResultMap">
+        select *
+        from question join paper_question on question.id = paper_question.question_id
+        where paper_id = #{id}
+    </select>
+
+    
+</mapper>

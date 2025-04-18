@@ -1,0 +1,13 @@
+package com.athome.taytayexamidea;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class TaytayExamIdeaApplicationTests {
+
+    @Test
+    void contextLoads() {
+    }
+
+}

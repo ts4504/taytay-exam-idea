@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--对应接口的全类名-->
+<mapper namespace="com.athome.mapper.ScoreMapper">
+    <select id="list" resultType="com.athome.pojo.Score">
+        select *
+        from score
+        <where>
+            <if test="studentId != null">
+                student_id = #{studentId}
+            </if>
+            <if test="teacherId != null">
+                AND teacher_id = #{teacherId}  <!-- 保持AND前缀 -->
+            </if>
+            <if test="courseId != null">
+                AND course_id = #{courseId}
+            </if>
+            <if test="status != null">
+                AND status = #{status}
+            </if>
+        </where>
+
+    </select>
+
+</mapper>
