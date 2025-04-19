@@ -27,7 +27,13 @@ import java.util.UUID;
 public class CosTest {
     @Test
     public void test() {
-        MultipartFile file;
+        String SECRETID = System.getenv("COS_SECRETID");
+        String SECRETKEY = System.getenv("COS_SECRETKEY");
+        String JAVAHOME = System.getenv("JAVA_HOME");
+
+        System.out.println(SECRETID);
+        System.out.println(SECRETKEY);
+        System.out.println(JAVAHOME);
     }
 
 }

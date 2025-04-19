@@ -19,8 +19,9 @@ import java.io.InputStream;
 import java.util.UUID;
 
 public class COSUtil {
-    private static String SECRETID = "AKIDa2ECwTmriKhqlSt89xWqwnQoytZ1FF0W";
-    private static String SECRETKEY = "JNDpDNJ3YoqdAUZOyKSLzOdev0rU3Qk6";
+    //腾讯云密钥
+    private static String SECRETID = System.getenv("COS_SECRETID");
+    private static String SECRETKEY = System.getenv("COS_SECRETKEY");
     private static String BUCKETNAME = "taytaynote-1330094563";
 
     // 2 设置 bucket 的地域, COS 地域的简称请参见 https://cloud.tencent.com/document/product/436/6224
