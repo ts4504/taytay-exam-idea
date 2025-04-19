@@ -19,7 +19,7 @@ import java.io.InputStream;
 import java.util.UUID;
 
 public class COSUtil {
-    //腾讯云密钥
+    //腾讯云密钥。
     private static String SECRETID = System.getenv("COS_SECRETID");
     private static String SECRETKEY = System.getenv("COS_SECRETKEY");
     private static String BUCKETNAME = "taytaynote-1330094563";
